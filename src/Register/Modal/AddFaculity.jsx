@@ -12,7 +12,6 @@ export default function FaculityModal() {
         shift: 'Morning',
         salary: ''
     });
-
     const [errors, setErrors] = useState({});
 
     const validateForm = () => {
@@ -35,8 +34,8 @@ export default function FaculityModal() {
         e.preventDefault();
         if (validateForm()) {
             try {
-                await addFaculity(formData)
-                navigate("/facultylist")
+                await addFaculity(formData);
+                navigate("/facultylist");
                 setFormData({
                     name: '',
                     email: '',
@@ -60,147 +59,137 @@ export default function FaculityModal() {
     };
 
     return (
-        <div className="flex h-screen bg-gray-100">
-            <aside className="w-64 bg-blue-600 text-white flex flex-col fixed h-full">
-                <div className="px-4 py-6 text-center">
+        <div className="min-h-screen bg-gray-50 flex">
+            <aside className="w-72 bg-gradient-to-b from-blue-800 to-blue-900 text-white shadow-2xl">
+                <div className="p-6 border-b border-blue-700">
                     <img
                         src="src/assets/NCBA&E.png"
                         alt="NCBA&E Logo"
-                        className="mx-auto h-25 w-20"
+                        className="mx-auto h-20 w-20 transform hover:scale-110 transition-transform duration-300"
                     />
+                    <h2 className="mt-3 text-xl font-bold text-center tracking-tight">Admin Portal</h2>
                 </div>
-                <nav className="flex-1 px-4">
-                    <ul>
-                        <li className="my-2">
-                            <a
-                                href="/admindashboard"
-                                className="block py-2 px-4 rounded text-white hover:bg-blue-500 transition hover:text-black"
-                            >
-                                Dashboard
-                            </a>
-                        </li>
-                        <li className="my-2">
-                            <a
-                                href="/studentlist"
-                                className="block py-2 px-4 rounded text-white hover:bg-blue-500 transition hover:text-black"
-                            >
-                                Students
-                            </a>
-                        </li>
-                        <li className="my-2">
-                            <a
-                                href="/facultylist"
-                                className="block py-2 px-4 rounded text-white hover:bg-blue-500 transition hover:text-black"
-                            >
-                                Faculity
-                            </a>
-                        </li>
-                        <li className="my-2">
-                            <a
-                                href="/department"
-                                className="block py-2 px-4 rounded text-white hover:bg-blue-500 transition hover:text-black"
-                            >
-                                Departments
-                            </a>
-                        </li>
-                        <li className="my-2">
-                            <a
-                                href="/f-staff"
-                                className="block py-2 px-4 rounded text-white hover:bg-blue-500 transition hover:text-black"
-                            >
-                                Finance Staff
-                            </a>
-                        </li>
-                        <li className="my-2">
-                            <a
-                                href="/profile"
-                                className="block py-2 px-4 rounded text-white hover:bg-blue-500 transition hover:text-black"
-                            >
-                                Setting
-                            </a>
-                        </li>
+                <nav className="py-6 px-3">
+                    <ul className="space-y-2">
+                        {[
+                            { href: "/admindashboard", label: "Dashboard" },
+                            { href: "/studentlist", label: "Students" },
+                            { href: "/facultylist", label: "Faculty" },
+                            { href: "/department", label: "Departments" },
+                            { href: "/f-staff", label: "Finance Staff" },
+                            { href: "/profile", label: "Settings" },
+                        ].map((item) => (
+                            <li key={item.href}>
+                                <a
+                                    href={item.href}
+                                    className="block py-2.5 px-4 rounded-lg text-sm font-medium hover:bg-blue-700 
+                                    transition-all duration-200 hover:pl-6"
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
-                <div className="p-4">
-                    <button className="w-full bg-blue-500 py-2 rounded hover:bg-red-400 transition"
+                <div className="p-6">
+                    <button
+                        className="w-full py-2.5 bg-red-600 rounded-lg text-sm font-semibold hover:bg-red-700 
+                        transition-all duration-200 shadow-md hover:shadow-lg"
                         onClick={() => {
                             localStorage.removeItem("admin");
                             navigate("/adminsignin");
-                        }}>
+                        }}
+                    >
                         Logout
                     </button>
                 </div>
             </aside>
-            <main className="flex-1 p-6 ml-64 overflow-y-auto">
-                <header className="mb-6 flex items-center justify-between">
-                    <h1 className="text-2xl font-semibold text-gray-800">Add Student</h1>
+
+            <main className="flex-1 p-8 overflow-y-auto" style={{
+                    backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+                    backgroundSize: "cover",
+                    backgroundPosition: "center right",
+                    backgroundRepeat: "no-repeat",
+                    backgroundBlendMode: "overlay",
+                    backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+                }}>
+                <header className="mb-8">
+                    <h1 className="text-3xl font-bold text-gray-800 bg-white/80 px-4 py-2 rounded-lg 
+                    inline-block shadow-sm">Add New Faculty</h1>
                 </header>
 
-                <section>
-                    <div className="bg-white p-6 rounded shadow-md w-full">
-
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            <div className="space-y-4">
+                <section className="max-w-2xl mx-auto">
+                    <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="space-y-5">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name</label>
                                     <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 
+                                        focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50"
+                                        placeholder="Enter faculty name"
                                     />
-                                    {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+                                    {errors.name && <p className="mt-1 text-sm text-red-600 font-medium">{errors.name}</p>}
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address</label>
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 
+                                        focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50"
+                                        placeholder="faculty@example.com"
                                     />
-                                    {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-                                </div>'
-                                
+                                    {errors.email && <p className="mt-1 text-sm text-red-600 font-medium">{errors.email}</p>}
+                                </div>
+
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700">Salary</label>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Monthly Salary</label>
                                     <input
                                         type="number"
                                         name="salary"
                                         value={formData.salary}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 
+                                        focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50"
+                                        placeholder="Enter salary amount"
                                     />
-                                    {errors.salary && <p className="text-red-500 text-sm">{errors.salary}</p>}
+                                    {errors.salary && <p className="mt-1 text-sm text-red-600 font-medium">{errors.salary}</p>}
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700">Position</label>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Position</label>
                                         <select
                                             name="position"
                                             value={formData.position}
                                             onChange={handleChange}
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 
+                                            focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50"
                                         >
                                             <option value="">Select Position</option>
                                             <option value="HOD">HOD</option>
                                             <option value="Permanent">Permanent</option>
                                             <option value="Visiting">Visiting</option>
                                         </select>
-                                        {errors.position && <p className="text-red-500 text-sm">{errors.position}</p>}
+                                        {errors.position && <p className="mt-1 text-sm text-red-600 font-medium">{errors.position}</p>}
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700">Shift</label>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Shift</label>
                                         <select
                                             name="shift"
                                             value={formData.shift}
                                             onChange={handleChange}
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 
+                                            focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50"
                                         >
                                             <option value="Morning">Morning</option>
                                             <option value="Evening">Evening</option>
@@ -209,34 +198,42 @@ export default function FaculityModal() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700">Department</label>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Department</label>
                                     <select
                                         name="department"
                                         value={formData.department}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 
+                                        focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50/50"
                                     >
                                         <option value="">Select Department</option>
                                         <option value="Bs-Cs">BS Computer Science</option>
                                         <option value="Bs-SE">BS Software Engineering</option>
                                         <option value="Bs-IT">BS Information Technology</option>
                                     </select>
-                                    {errors.department && <p className="text-red-500 text-sm">{errors.department}</p>}
+                                    {errors.department && <p className="mt-1 text-sm text-red-600 font-medium">{errors.department}</p>}
                                 </div>
-                                
                             </div>
 
-                            <div className="flex justify-end space-x-3">
+                            {errors.submit && (
+                                <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                                    <p className="text-sm text-red-600 font-medium">{errors.submit}</p>
+                                </div>
+                            )}
+
+                            <div className="flex justify-end space-x-4 pt-2">
                                 <button
                                     type="button"
-                                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
                                     onClick={() => navigate("/facultylist")}
+                                    className="px-5 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 
+                                    rounded-lg hover:bg-gray-200 transition-all duration-200 hover:shadow-md"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+                                    className="px-5 py-2.5 text-sm font-medium text-white bg-blue-600 
+                                    rounded-lg hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg"
                                 >
                                     Add Faculty
                                 </button>

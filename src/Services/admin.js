@@ -1,13 +1,13 @@
 let admin = [
   {
-    name: "Taimoor Gillani",
+    name: "Iftkhar",
     email: "adminuser@edu.com",
     password: "Test@123",
     mobile: "03011234567",
     userType: "admin",
   },
   {
-    name: "Taimoor Gillani",
+    name: "Adnan",
     email: "adminuser1@edu.com",
     password: "Test@123",
     mobile: "03011234567",

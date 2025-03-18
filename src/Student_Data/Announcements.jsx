@@ -60,11 +60,10 @@ const Student_Announcements = () => {
                         <li className="my-2">
                             <a
                                 href="/studentdashboard"
-                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${
-                                    isActive('/studentdashboard') 
-                                        ? 'bg-blue-600 shadow-md' 
+                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${isActive('/studentdashboard')
+                                        ? 'bg-blue-600 shadow-md'
                                         : 'hover:bg-blue-600 hover:shadow-md'
-                                }`}
+                                    }`}
                             >
                                 <LayoutDashboard className="w-5 h-5" />
                                 Dashboard
@@ -73,11 +72,10 @@ const Student_Announcements = () => {
                         <li className="my-2">
                             <a
                                 href="/studentcourses"
-                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${
-                                    isActive('/studentcourses') 
-                                        ? 'bg-blue-600 shadow-md' 
+                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${isActive('/studentcourses')
+                                        ? 'bg-blue-600 shadow-md'
                                         : 'hover:bg-blue-600 hover:shadow-md'
-                                }`}
+                                    }`}
                             >
                                 <BookOpen className="w-5 h-5" />
                                 Courses
@@ -86,11 +84,10 @@ const Student_Announcements = () => {
                         <li className="my-2">
                             <a
                                 href="/studentassignments"
-                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${
-                                    isActive('/studentassignments') 
-                                        ? 'bg-blue-600 shadow-md' 
+                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${isActive('/studentassignments')
+                                        ? 'bg-blue-600 shadow-md'
                                         : 'hover:bg-blue-600 hover:shadow-md'
-                                }`}
+                                    }`}
                             >
                                 <Calendar className="w-5 h-5" />
                                 Assignments
@@ -99,11 +96,10 @@ const Student_Announcements = () => {
                         <li className="my-2">
                             <a
                                 href="/studentschedule"
-                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${
-                                    isActive('/studentschedule') 
-                                        ? 'bg-blue-600 shadow-md' 
+                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${isActive('/studentschedule')
+                                        ? 'bg-blue-600 shadow-md'
                                         : 'hover:bg-blue-600 hover:shadow-md'
-                                }`}
+                                    }`}
                             >
                                 <CalendarIcon className="w-5 h-5" />
                                 Class Schedule
@@ -112,11 +108,10 @@ const Student_Announcements = () => {
                         <li className="my-2">
                             <a
                                 href="/studentannouncements"
-                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${
-                                    isActive('/studentannouncements') 
-                                        ? 'bg-blue-600 shadow-md' 
+                                className={`flex items-center gap-3 py-3 px-4 rounded-lg text-white transition-all duration-300 hover:translate-x-1 ${isActive('/studentannouncements')
+                                        ? 'bg-blue-600 shadow-md'
                                         : 'hover:bg-blue-600 hover:shadow-md'
-                                }`}
+                                    }`}
                             >
                                 <Bell className="w-5 h-5" />
                                 Announcements
@@ -139,7 +134,15 @@ const Student_Announcements = () => {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-6 ml-64 overflow-auto">
+            <main className="flex-1 p-6 ml-64 overflow-auto"
+                style={{
+                    backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+                    backgroundSize: "cover",
+                    backgroundPosition: "center right",
+                    backgroundRepeat: "no-repeat",
+                    backgroundBlendMode: "overlay",
+                    backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+                }}>
                 <header className="mb-8 bg-white p-6 rounded-xl shadow-md flex items-center justify-between">
                     <div>
                         <h1 className="text-2xl font-bold text-blue-800">
@@ -182,10 +185,10 @@ const Student_Announcements = () => {
                                     <p className="text-sm text-gray-600">{announcement.content}</p>
                                     <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
                                         <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded">{announcement.course}</span>
-                                        <span>{new Date(announcement.date).toLocaleDateString('en-US', { 
-                                            year: 'numeric', 
-                                            month: 'short', 
-                                            day: 'numeric' 
+                                        <span>{new Date(announcement.date).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'short',
+                                            day: 'numeric'
                                         })}</span>
                                     </div>
                                 </div>

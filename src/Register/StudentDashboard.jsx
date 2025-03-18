@@ -110,7 +110,7 @@ const StudentDashboard = () => {
     // State for modal
     const [showModal, setShowModal] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState(null);
-    
+
     // Get student data from localStorage
     const student = localStorage.getItem("student");
     const studentData = JSON.parse(student) || {
@@ -144,7 +144,7 @@ const StudentDashboard = () => {
     const generateSchedule = (courses) => {
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         const times = ['9:00 AM - 10:30 AM', '11:00 AM - 12:30 PM', '1:00 PM - 2:30 PM', '3:00 PM - 4:30 PM'];
-        
+
         return courses.map((course, index) => ({
             id: index + 1,
             course: course.name,
@@ -239,7 +239,14 @@ const StudentDashboard = () => {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-6 ml-64 overflow-auto">
+            <main className="flex-1 p-6 ml-64 overflow-auto" style={{
+                backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+                backgroundSize: "cover",
+                backgroundPosition: "center right",
+                backgroundRepeat: "no-repeat",
+                backgroundBlendMode: "overlay",
+                backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+            }}>
                 <header className="mb-8 bg-white p-6 rounded-xl shadow-md flex items-center justify-between">
                     <div>
                         <h1 className="text-2xl font-bold text-blue-800">
@@ -263,8 +270,8 @@ const StudentDashboard = () => {
                         </div>
                         <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
                             {displayCourses.map((course) => (
-                                <div 
-                                    key={course.id} 
+                                <div
+                                    key={course.id}
                                     className="space-y-2 p-4 border border-gray-100 rounded-lg hover:bg-blue-50 cursor-pointer transition-all hover:border-blue-200 hover:scale-[1.02]"
                                     onClick={() => handleCourseClick(course)}
                                 >
@@ -345,8 +352,8 @@ const StudentDashboard = () => {
                         </div>
                         <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
                             {courseSchedule.map((schedule) => (
-                                <div 
-                                    key={schedule.id} 
+                                <div
+                                    key={schedule.id}
                                     className="space-y-2 p-4 border border-gray-100 rounded-lg hover:bg-blue-50 cursor-pointer transition-all hover:border-blue-200 hover:scale-[1.02]"
                                     onClick={() => {
                                         const course = displayCourses.find(c => c.name === schedule.course);
@@ -373,14 +380,14 @@ const StudentDashboard = () => {
                     <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto">
                         <div className="flex justify-between items-center p-6 border-b bg-blue-50">
                             <h2 className="text-2xl font-bold text-blue-800">{selectedCourse.name}</h2>
-                            <button 
+                            <button
                                 onClick={() => setShowModal(false)}
                                 className="text-gray-500 hover:text-red-500 transition-colors"
                             >
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
-                        
+
                         <div className="p-6 space-y-6">
                             {/* Instructor Information */}
                             <div className="space-y-2 bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -389,7 +396,7 @@ const StudentDashboard = () => {
                                 </h3>
                                 <p className="text-gray-700 font-medium">{selectedCourse.instructor}</p>
                             </div>
-                            
+
                             {/* Course Schedule */}
                             <div className="space-y-3 bg-blue-50 p-4 rounded-lg border border-blue-100">
                                 <h3 className="text-lg font-semibold text-blue-800 flex items-center">
@@ -407,7 +414,7 @@ const StudentDashboard = () => {
                                     </p>
                                 </div>
                             </div>
-                            
+
                             {/* Assessment Information */}
                             <div className="space-y-3 bg-indigo-50 p-4 rounded-lg border border-indigo-100">
                                 <h3 className="text-lg font-semibold text-blue-800 flex items-center">
@@ -428,7 +435,7 @@ const StudentDashboard = () => {
                                     </p>
                                 </div>
                             </div>
-                            
+
                             {/* Course Topics */}
                             <div className="space-y-3 bg-green-50 p-4 rounded-lg border border-green-100">
                                 <h3 className="text-lg font-semibold text-blue-800 flex items-center">
@@ -440,7 +447,7 @@ const StudentDashboard = () => {
                                     ))}
                                 </ul>
                             </div>
-                            
+
                             {/* Grading Scheme */}
                             <div className="space-y-3 bg-purple-50 p-4 rounded-lg border border-purple-100">
                                 <h3 className="text-lg font-semibold text-blue-800 flex items-center">
@@ -455,9 +462,9 @@ const StudentDashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="p-6 border-t bg-gray-50 flex justify-end">
-                            <button 
+                            <button
                                 onClick={() => setShowModal(false)}
                                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
                             >

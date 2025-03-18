@@ -45,7 +45,7 @@ const AdminSignIn = () => {
           password: "",
         })
         setErrors({});
-        navigate("/admindashboard"); 
+        navigate("/admindashboard");
       } else {
         setErrors({ general: "Invalid email or password" });
       }
@@ -55,15 +55,25 @@ const AdminSignIn = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div
+      className="flex items-center justify-center min-h-screen bg-gray-50"
+      style={{
+        backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+        backgroundSize: "cover",
+        backgroundPosition: "center right",
+        backgroundRepeat: "no-repeat",
+        backgroundBlendMode: "overlay",
+        backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+      }}
+    >
       <div className="w-full max-w-md p-8 bg-white rounded-3xl shadow-xl divide-y divide-neutral-200">
-        <div className="text-center pb-6 mt-[-55px]">
+        <div className="text-center pb-6">
           <img
             src="src/assets/NCBA&E.png"
             alt="NCBA&E Logo"
-            className="mx-auto h-25 w-25"
+            className="mx-auto h-20 w-20" // Fixed size
           />
-          <h2 className="text-2xl font-bold text-gray-800 mt-[-45px]">
+          <h2 className="text-2xl font-bold text-gray-800 mt-4">
             Sign In to NCBA&E
           </h2>
         </div>
@@ -123,7 +133,7 @@ const AdminSignIn = () => {
               )}
             </div>
           </div>
-          <div className="mt-6 flex justify-between items-center">
+          <div className="mt-6 flex justify-end items-center">
             <button
               type="submit"
               className="bg-blue-600 text-white rounded-full px-6 py-2 text-sm font-semibold hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"

@@ -7,8 +7,8 @@ import {
     GraduationCap,
     Settings,
     Bell,
-    Book, 
-    Clock, 
+    Book,
+    Clock,
     Calendar as CalendarIcon,
     BookMarked,
     BarChart3,
@@ -60,22 +60,22 @@ const Student_Courses = () => {
         ? studentData.courses
         : [];
 
-        const courses = courseNames.map((course, index) => {
-            const baseCourse = {
-                id: index + 1,
-                name: typeof course === 'string' ? course : course.name || 'Unknown Course',
-                instructor: typeof course === 'object' ? course.instructor || 'TBD' : 'TBD',
-                progress: typeof course === 'object' ? course.progress || 0 : 0,
-            };
-            
-            // Use generateCourseOutline after it's defined
-            const courseOutline = generateCourseOutline(baseCourse.name);
-            return {
-                ...baseCourse,
-                ...courseOutline,
-                progress: baseCourse.progress // Keep original progress if available
-            };
-        });
+    const courses = courseNames.map((course, index) => {
+        const baseCourse = {
+            id: index + 1,
+            name: typeof course === 'string' ? course : course.name || 'Unknown Course',
+            instructor: typeof course === 'object' ? course.instructor || 'TBD' : 'TBD',
+            progress: typeof course === 'object' ? course.progress || 0 : 0,
+        };
+
+        // Use generateCourseOutline after it's defined
+        const courseOutline = generateCourseOutline(baseCourse.name);
+        return {
+            ...baseCourse,
+            ...courseOutline,
+            progress: baseCourse.progress // Keep original progress if available
+        };
+    });
 
     // Function to determine if a nav link is active
     const isActive = (path) => {
@@ -160,10 +160,18 @@ const Student_Courses = () => {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-6 ml-64 overflow-auto">
+            <main className="flex-1 p-6 ml-64 overflow-auto"
+                style={{
+                    backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+                    backgroundSize: "cover",
+                    backgroundPosition: "center right",
+                    backgroundRepeat: "no-repeat",
+                    backgroundBlendMode: "overlay",
+                    backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+                }}>
                 <header className="mb-8 bg-white p-6 rounded-xl shadow-md flex items-center justify-between">
                     <div>
-                    <h1 className="text-2xl font-bold text-blue-800">
+                        <h1 className="text-2xl font-bold text-blue-800">
                             Welcome, {studentData.name}
                         </h1>
                         <p className="text-gray-600 mt-1">Explore your enrolled courses and track your progress</p>
@@ -174,12 +182,12 @@ const Student_Courses = () => {
                         <p className="text-sm text-gray-700">Semester: <span className="font-semibold text-blue-700">{studentData.semester}</span></p>
                     </div>
                 </header>
-                
+
                 {selectedCourse ? (
                     <div className="bg-white p-6 rounded-xl shadow-md">
                         <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-3">
-                                <button 
+                                <button
                                     onClick={() => setSelectedCourse(null)}
                                     className="text-blue-700 hover:text-blue-900 transition-colors"
                                 >
@@ -190,7 +198,7 @@ const Student_Courses = () => {
                                 <h2 className="text-2xl font-bold text-gray-900">{selectedCourse.name}</h2>
                             </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center gap-2 mb-3">
@@ -198,7 +206,7 @@ const Student_Courses = () => {
                                     <h3 className="text-lg font-semibold text-gray-800">Instructor</h3>
                                 </div>
                                 <p className="text-gray-700 ml-7">{selectedCourse.instructor}</p>
-                                
+
                                 <div className="flex items-center gap-2 mt-4 mb-3">
                                     <Clock className="w-5 h-5 text-blue-700" />
                                     <h3 className="text-lg font-semibold text-gray-800">Schedule</h3>
@@ -207,14 +215,14 @@ const Student_Courses = () => {
                                     <p className="text-gray-700">Days: {selectedCourse.schedule.days.join(', ')}</p>
                                     <p className="text-gray-700">Time: {selectedCourse.schedule.time}</p>
                                 </div>
-                                
+
                                 <div className="flex items-center gap-2 mt-4 mb-3">
                                     <BookMarked className="w-5 h-5 text-blue-700" />
                                     <h3 className="text-lg font-semibold text-gray-800">Course Content</h3>
                                 </div>
                                 <p className="text-gray-700 ml-7">Total Lectures: {selectedCourse.lectureCount}</p>
                             </div>
-                            
+
                             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center gap-2 mb-3">
                                     <BarChart3 className="w-5 h-5 text-blue-700" />
@@ -226,7 +234,7 @@ const Student_Courses = () => {
                                     <p className="text-gray-700">Presentations: {selectedCourse.assessment.presentations}</p>
                                     <p className="text-gray-700">Projects: {selectedCourse.assessment.projects}</p>
                                 </div>
-                                
+
                                 <div className="flex items-center gap-2 mt-4 mb-3">
                                     <Info className="w-5 h-5 text-blue-700" />
                                     <h3 className="text-lg font-semibold text-gray-800">Grading Policy</h3>
@@ -238,7 +246,7 @@ const Student_Courses = () => {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <div className="flex items-center gap-2 mb-3">
                                 <BookOpen className="w-5 h-5 text-blue-700" />
@@ -256,8 +264,8 @@ const Student_Courses = () => {
                 ) : (
                     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {courses.map((course) => (
-                            <div 
-                                key={course.id} 
+                            <div
+                                key={course.id}
                                 className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 transform transition-all duration-300 hover:shadow-md hover:scale-[1.02] cursor-pointer"
                                 onClick={() => setSelectedCourse(course)}
                             >
