@@ -51,10 +51,12 @@ createRoot(document.getElementById('root')).render(
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path
+          backgroundImage: `url('https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/background_image.png?raw=true')`,
+
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        
+
         backgroundBlendMode: 'overlay',
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
       }}

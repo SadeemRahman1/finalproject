@@ -63,9 +63,9 @@ export default function AddFinanceModal() {
         <div className="min-h-screen bg-gray-50 flex">
             <aside className="w-72 bg-gradient-to-b from-blue-800 to-blue-900 text-white shadow-2xl">
                 <div className="p-6 border-b border-blue-700">
-                    <img
-                        src="src/assets/NCBA&E.png"
-                        alt="NCBA&E Logo"
+                    <img 
+  src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true" 
+  alt="NCBA&E Logo"
                         className="mx-auto h-20 w-20 transform hover:scale-110 transition-transform duration-300"
                     />
                     <h2 className="mt-3 text-xl font-bold text-center tracking-tight">Admin Portal</h2>
@@ -107,7 +107,8 @@ export default function AddFinanceModal() {
             </aside>
 
             <main className="flex-1 p-8 overflow-y-auto" style={{
-                    backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+                      backgroundImage: `url('https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/background_image.png?raw=true')`,
+
                     backgroundSize: "cover",
                     backgroundPosition: "center right",
                     backgroundRepeat: "no-repeat",

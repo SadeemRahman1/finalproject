@@ -9,7 +9,8 @@ const StyledImageBackground = styled(ImageBackground);
 const App = () => {
   return (
     <StyledImageBackground
-      source={require('./assets/NCBA&E.pngs')} // Local image
+      source={{ uri: "https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true" }}
+  style={{ width: 80, height: 80 }} // Adjust size as needed// Local image
       className="flex-1 justify-center items-center" // Tailwind classes
     >
       <Text className="text-white text-2xl font-bold">Welcome to My App!</Text>

@@ -20,11 +20,12 @@ const AdminDashboard = () => {
       {/* Sidebar */}
       <aside className="w-72 bg-gradient-to-b from-blue-700 to-blue-900 text-white shadow-lg transform transition-all duration-300">
         <div className="p-6 text-center border-b border-blue-800">
-          <img
-            src="src/assets/NCBA&E.png"
-            alt="NCBA&E Logo"
-            className="mx-auto h-20 w-20 transition-transform duration-300 hover:scale-105"
-          />
+         <img
+  src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true"
+  alt="NCBA&E Logo"
+  className="mx-auto h-30 w-30 transition-transform duration-300 hover:scale-105"
+/>
+
           <h2 className="mt-2 text-xl font-bold tracking-wide">Admin Portal</h2>
         </div>
         <nav className="flex-1 px-4 py-6">
@@ -64,14 +65,15 @@ const AdminDashboard = () => {
       {/* Main Content */}
       <main
         className="flex-1 p-8 relative"
-        style={{
-          backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
-          backgroundSize: "cover",
-          backgroundPosition: "center right",
-          backgroundRepeat: "no-repeat",
-          backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
-        }}
+       style={{
+  backgroundImage: `url('https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/background_image.png?raw=true')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center right",
+  backgroundRepeat: "no-repeat",
+  backgroundBlendMode: "overlay",
+  backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+}}
+
       >
         <header className="mb-8 flex items-center justify-between relative z-10">
           <div className="flex items-center space-x-4">

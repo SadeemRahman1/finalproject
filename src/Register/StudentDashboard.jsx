@@ -168,9 +168,9 @@ const StudentDashboard = () => {
             {/* Sidebar */}
             <aside className="fixed h-screen w-64 bg-gradient-to-b from-blue-700 to-blue-900 text-white flex flex-col shadow-xl">
                 <div className="px-4 py-6 text-center bg-blue-800">
-                    <img
-                        src="src/assets/NCBA&E.png"
-                        alt="NCBA&E Logo"
+                    <img 
+  src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true" 
+  alt="NCBA&E Logo"
                         className="mx-auto h-20 w-20 mb-2 transition-all duration-300 hover:scale-105"
                     />
                     <h1 className="text-xl font-bold tracking-wider">NCBA&E LMS</h1>
@@ -240,7 +240,8 @@ const StudentDashboard = () => {
 
             {/* Main Content */}
             <main className="flex-1 p-6 ml-64 overflow-auto" style={{
-                backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
+                  backgroundImage: `url('https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/background_image.png?raw=true')`,
+
                 backgroundSize: "cover",
                 backgroundPosition: "center right",
                 backgroundRepeat: "no-repeat",

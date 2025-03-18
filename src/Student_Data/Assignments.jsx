@@ -105,8 +105,9 @@ const Student_Assignments = () => {
       <aside className="fixed h-screen w-64 bg-gradient-to-b from-blue-700 to-blue-900 text-white flex flex-col shadow-xl">
         <div className="px-4 py-6 text-center bg-blue-800">
           <img
-            src="src/assets/NCBA&E.png"
-            alt="NCBA&E Logo"
+            src="src/assets/<img
+  src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true"
+  alt="NCBA&E Logo"            alt="NCBA&E Logo"
             className="mx-auto h-20 w-20 mb-2 transition-all duration-300 hover:scale-105"
           />
           <h1 className="text-xl font-bold tracking-wider">NCBA&E LMS</h1>
@@ -176,14 +177,15 @@ const Student_Assignments = () => {
 
       {/* Main Content */}
       <main className="flex-1 p-6 ml-64 overflow-auto"
-        style={{
-          backgroundImage: `url(/src/assets/background_image.png)`, // Adjust path as needed
-          backgroundSize: "cover",
-          backgroundPosition: "center right",
-          backgroundRepeat: "no-repeat",
-          backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
-        }}>
+       style={{
+  backgroundImage: `url('https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/background_image.png?raw=true')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center right",
+  backgroundRepeat: "no-repeat",
+  backgroundBlendMode: "overlay",
+  backgroundColor: "rgba(0, 0, 0, 0.1)", // Slight overlay for transparency
+}}
+>
         <header className="mb-8 bg-white p-6 rounded-xl shadow-md flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-blue-800">
