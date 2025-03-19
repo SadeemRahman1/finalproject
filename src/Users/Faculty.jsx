@@ -49,7 +49,7 @@ function FacultyList() {
          <img
   src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true"
   alt="NCBA&E Logo"
-  className="mx-auto h-30 w-30 transition-transform duration-300 hover:scale-105"
+  className="mx-auto h-20 w-20 transition-transform duration-300 hover:scale-105"
 />
 
           <h2 className="mt-2 text-xl font-bold tracking-wide">Admin Portal</h2>

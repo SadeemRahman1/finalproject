@@ -105,8 +105,8 @@ const Student_Assignments = () => {
       <aside className="fixed h-screen w-64 bg-gradient-to-b from-blue-700 to-blue-900 text-white flex flex-col shadow-xl">
         <div className="px-4 py-6 text-center bg-blue-800">
           <img
-            src="src/assets/<img
-  src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true"
+             
+ src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true"
   alt="NCBA&E Logo"            alt="NCBA&E Logo"
             className="mx-auto h-20 w-20 mb-2 transition-all duration-300 hover:scale-105"
           />
