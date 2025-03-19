@@ -71,7 +71,7 @@ const AdminSignIn = () => {
          <img
   src="https://github.com/SadeemRahman1/finalproject/blob/main/src/assets/NCBA%26E.png?raw=true"
   alt="NCBA&E Logo"
-  className="mx-auto h-30 w-30"
+  className="mx-auto h-40 w-40"
 />
 
           <h2 className="text-2xl font-bold text-gray-800 mt-4">
